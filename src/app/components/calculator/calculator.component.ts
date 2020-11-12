@@ -1,20 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.scss']
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent implements OnInit, OnDestroy {
 
   display = '';
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('ngOnIOnInit CalculatorComponent');
   }
 
-  public handleClick(myNewChar: any): void {
-    this.display = this.display + myNewChar;
+  ngOnDestroy(): void {
+    console.log('ngOnIOnDestroy CalculatorComponent');
+
   }
+
+  handleSignal(display): void {
+    this.display = display;
+  }
+
 }

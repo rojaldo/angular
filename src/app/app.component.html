@@ -1,1 +1,11 @@
-<app-calculator></app-calculator>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>First</a>
+    <ng-template ngbNavContent><app-calculator></app-calculator></ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Second</a>
+    <ng-template ngbNavContent>Second content</ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
