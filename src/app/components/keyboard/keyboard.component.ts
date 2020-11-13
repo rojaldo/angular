@@ -9,13 +9,11 @@ import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/cor
 export class KeyboardComponent implements OnInit {
 
   @Output() signal = new EventEmitter<string>();
-  display = '';
 
   constructor() { }
 
 
   ngOnInit(): void {
-    // this.signal.emit(this.display);
   }
 
 
