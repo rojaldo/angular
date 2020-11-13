@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import * as Rx from 'rxjs';
 
 export enum State { Init, FirstFigure, SecondFigure, Result }
@@ -13,14 +13,9 @@ export class CalculatorService {
   displayBackup = '';
   private display = '';
 
-  // subject = new Rx.BehaviorSubject(this.display);
-  signal = new EventEmitter<string>();
+  subject = new Rx.BehaviorSubject(this.display);
 
   constructor() { }
-
-  public updateSignal(): void{
-    this.signal.emit(this.display);
-  }
 
   public resolve(): number {
     switch (this.operator) {
@@ -43,18 +38,18 @@ export class CalculatorService {
       case State.Init:
         this.firstFigure = myNumber;
         this.display = this.display + myNumber;
-        this.signal.emit(this.display);
+        this.subject.next(this.display);
         this.currentState = State.FirstFigure;
         break;
       case State.FirstFigure:
         this.firstFigure = this.firstFigure * 10 + myNumber;
         this.display = this.display + myNumber;
-        this.signal.emit(this.display);
+        this.subject.next(this.display);
         break;
       case State.SecondFigure:
         this.secondFigure = this.secondFigure * 10 + myNumber;
         this.display = this.display + myNumber;
-        this.signal.emit(this.display);
+        this.subject.next(this.display);
         break;
       case State.Result:
         this.result = 0;
@@ -62,7 +57,7 @@ export class CalculatorService {
         this.secondFigure = 0;
         this.operator = '';
         this.display = '' + myNumber;
-        this.signal.emit(this.display);
+        this.subject.next(this.display);
         this.currentState = State.FirstFigure;
         break;
 
@@ -80,7 +75,7 @@ export class CalculatorService {
         if (this.isOperator(mySymbol)) {
           this.operator = mySymbol;
           this.display = this.display + this.operator;
-          this.signal.emit(this.display);
+          this.subject.next(this.display);
 
           this.currentState = State.SecondFigure;
         }
@@ -89,7 +84,7 @@ export class CalculatorService {
         if (mySymbol === '=') {
           this.result = this.resolve();
           this.display = this.display + mySymbol + this.result;
-          this.signal.emit(this.display);
+          this.subject.next(this.display);
 
           this.currentState = State.Result;
         }
@@ -101,7 +96,7 @@ export class CalculatorService {
           this.operator = mySymbol;
           this.result = 0;
           this.display = this.firstFigure + this.operator;
-          this.signal.emit(this.display);
+          this.subject.next(this.display);
 
           this.currentState = State.SecondFigure;
         }

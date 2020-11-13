@@ -15,12 +15,10 @@ export class CalculatorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     console.log('ngOnIOnInit CalculatorComponent');
-    this.service.signal.subscribe((data) => {
+    this.service.subject.subscribe((data) => {
       console.log('Subscriber:', data);
       this.display = data;
     });
-
-    this.service.updateSignal();
 
   }
 
