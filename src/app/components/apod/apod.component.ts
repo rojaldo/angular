@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApodService } from 'src/app/services/apod.service';
 
 @Component({
   selector: 'app-apod',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApodComponent implements OnInit {
 
-  constructor() { }
+  title = '';
+  description = '';
+
+  constructor(private service: ApodService) { }
 
   ngOnInit(): void {
+    this.service.getRequest().subscribe((data) => this.processRequest(data));
+  }
+
+  processRequest(data: any): void{
+    this.title = data.title;
+    this.description = data.explanation;
   }
 
 }

@@ -8,6 +8,8 @@ import { DisplayComponent } from './components/display/display.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { CalculatorService } from './services/calculator.service';
 import { ApodComponent } from './components/apod/apod.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApodService } from './services/apod.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,9 @@ import { ApodComponent } from './components/apod/apod.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule, HttpClientModule
   ],
-  providers: [CalculatorService],
+  providers: [CalculatorService, ApodService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
