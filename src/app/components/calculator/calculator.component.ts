@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CalculatorService } from 'src/app/services/calculator.service';
-import { State } from 'src/app/services/calculator.service';
 
 @Component({
   selector: 'app-calculator',

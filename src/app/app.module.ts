@@ -7,13 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DisplayComponent } from './components/display/display.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { CalculatorService } from './services/calculator.service';
+import { ApodComponent } from './components/apod/apod.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalculatorComponent,
     DisplayComponent,
-    KeyboardComponent
+    KeyboardComponent,
+    ApodComponent
   ],
   imports: [
     BrowserModule,
