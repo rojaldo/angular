@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
+import { CalculatorService } from 'src/app/services/calculator.service';
+import { State } from 'src/app/services/calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -10,19 +11,26 @@ export class CalculatorComponent implements OnInit, OnDestroy {
 
   display = '';
 
-  constructor() { }
+  constructor(private service: CalculatorService) { }
 
   ngOnInit(): void {
     console.log('ngOnIOnInit CalculatorComponent');
+    this.display = this.service.displayBackup;
+
   }
 
   ngOnDestroy(): void {
     console.log('ngOnIOnDestroy CalculatorComponent');
-
+    this.service.displayBackup = this.display;
   }
 
-  handleSignal(display): void {
-    this.display = display;
+  handleSignal(myNewChar: any): void {
+    if (typeof (myNewChar) === 'number') {
+      this.service.handleNumber(myNewChar);
+    } else if (typeof (myNewChar) === 'string') {
+      this.service.handleSymbol(myNewChar);
+    }
   }
+
 
 }
