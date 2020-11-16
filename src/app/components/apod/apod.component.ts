@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApodService } from 'src/app/services/apod.service';
-import { ShowApodComponent } from '../show-apod/show-apod.component';
 
 @Component({
   selector: 'app-apod',
@@ -10,7 +9,6 @@ import { ShowApodComponent } from '../show-apod/show-apod.component';
 export class ApodComponent implements OnInit {
 
   pickerDate: any = {};
-  @ViewChild(ShowApodComponent) showApod;
 
   constructor() { }
 
@@ -19,9 +17,8 @@ export class ApodComponent implements OnInit {
   }
 
 
-  handleChange(): void{
-    console.log('handleChange()');
-    this.showApod.updateData(this.pickerDate);
+  updateDate(): void{
+
   }
 
 

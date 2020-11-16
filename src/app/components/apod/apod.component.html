@@ -1,4 +1,4 @@
 <div class="container">
-    <ngb-datepicker #dp [(ngModel)]="pickerDate" (dateSelect)= "handleChange()"></ngb-datepicker>
-    <app-show-apod></app-show-apod>
+    <ngb-datepicker #dp [(ngModel)]="pickerDate"></ngb-datepicker>
+    <app-show-apod [selectedDate]="pickerDate"></app-show-apod>
 </div>

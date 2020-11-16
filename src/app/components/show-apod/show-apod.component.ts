@@ -6,7 +6,7 @@ import { ApodService } from 'src/app/services/apod.service';
   templateUrl: './show-apod.component.html',
   styleUrls: ['./show-apod.component.scss']
 })
-export class ShowApodComponent implements OnInit {
+export class ShowApodComponent implements OnInit, OnChanges {
   title = '';
   description = '';
   date = '';
@@ -14,25 +14,24 @@ export class ShowApodComponent implements OnInit {
   hdURL = '';
   resolved = false;
   error = false;
-  // @Input() selectedDate: any;
-  selectedDate: any;
+  @Input() selectedDate: any;
 
   constructor(private service: ApodService) { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+    if (this.selectedDate !== {}) {
+      const stringDate = this.selectedDate.year + '-' + this.selectedDate.month + '-' + this.selectedDate.day;
+      this.service.getRequest(stringDate).subscribe(
+        (data) => this.processRequest(data),
+        (error) => this.processError(error));
+    }
+  }
 
   ngOnInit(): void {
     this.service.getRequest().subscribe(
       (data) => this.processRequest(data),
       (error) => this.processError(error));
-  }
-
-  updateData(pickerDate: any): void {
-    this.selectedDate = pickerDate;
-    console.log('updateData()');
-    const stringDate = this.selectedDate.year + '-' + this.selectedDate.month + '-' + this.selectedDate.day;
-    this.service.getRequest(stringDate).subscribe(
-      (data) => this.processRequest(data),
-      (error) => this.processError(error));
-
   }
 
   processRequest(data: any): void {
