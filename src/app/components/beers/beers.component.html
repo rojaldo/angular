@@ -1,0 +1,24 @@
+<div class="container">
+    {{3.5|abv:'º'}}
+    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let beer of beers">
+            <div class="card">
+                <div class="container-fluid d-flex justify-content-center">
+                    <img class="card-img-top" [src]="beer.image_url" style = "width: 60px" alt="">
+                    
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">{{beer.name}}</h2>
+                    <h4>{{beer.abv | abv: 'º'}}</h4>
+                    <p class="card-text">{{beer.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+<p>{{beers | json}}</p>
+</div>
+

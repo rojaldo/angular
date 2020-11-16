@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApodService } from './services/apod.service';
 import { FormsModule } from '@angular/forms';
 import { ShowApodComponent } from './components/show-apod/show-apod.component';
+import { BeersComponent } from './components/beers/beers.component';
+import { AbvPipe } from './pipes/abv.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ShowApodComponent } from './components/show-apod/show-apod.component';
     DisplayComponent,
     KeyboardComponent,
     ApodComponent,
-    ShowApodComponent
+    ShowApodComponent,
+    BeersComponent,
+    AbvPipe
   ],
   imports: [
     BrowserModule,

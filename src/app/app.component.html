@@ -1,11 +1,15 @@
 <ul ngbNav #nav="ngbNav" class="nav-tabs">
   <li ngbNavItem>
-    <a ngbNavLink>First</a>
+    <a ngbNavLink>Calculadora</a>
     <ng-template ngbNavContent><app-calculator></app-calculator></ng-template>
   </li>
   <li ngbNavItem>
     <a ngbNavLink>Apod</a>
     <ng-template ngbNavContent><app-apod></app-apod></ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>IPA</a>
+    <ng-template ngbNavContent><app-beers></app-beers></ng-template>
   </li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>
