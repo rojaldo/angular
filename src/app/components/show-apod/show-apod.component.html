@@ -1,0 +1,13 @@
+<div class="jumbotron" *ngIf="resolved">
+    <h1 class="display-3">{{title}}</h1>
+    <p class="lead" >{{date}}</p>
+    <hr class="my-2">
+    <img [src]="imageURL" alt="" class="w-100">
+    <p>{{description}}</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" role="button" [href]="hdURL">Download</a>
+    </p>
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    <strong>Hay un error</strong>
+</div>
