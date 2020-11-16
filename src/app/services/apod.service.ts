@@ -9,7 +9,13 @@ export class ApodService {
 
   constructor(private http: HttpClient) { }
 
-  getRequest(url = this.url): Observable<any>{
+  getRequest(date?: string): Observable<any>{
+    let url = '';
+    if (date){
+      url = this.url + '&date=' + date;
+    } else {
+      url = this.url;
+    }
     return this.http.get(url);
   }
 }

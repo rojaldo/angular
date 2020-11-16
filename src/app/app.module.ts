@@ -10,6 +10,7 @@ import { CalculatorService } from './services/calculator.service';
 import { ApodComponent } from './components/apod/apod.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApodService } from './services/apod.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ApodService } from './services/apod.service';
   ],
   imports: [
     BrowserModule,
-    NgbModule, HttpClientModule
+    NgbModule, HttpClientModule, FormsModule
   ],
   providers: [CalculatorService, ApodService],
   bootstrap: [AppComponent]
