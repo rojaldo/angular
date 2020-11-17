@@ -12,12 +12,23 @@ export class BeersComponent implements OnInit {
   error = false;
   resolved = false;
 
+  minABV = 4;
+  maxABV = 10;
+  options = {
+    floor: 0,
+    ceil: 50
+  };
+
   constructor(private service: BeersService) { }
 
   ngOnInit(): void {
     this.service.getRequest().subscribe(
       (data) => this.processRequest(data),
       (error) => this.processError(error));
+  }
+
+  handleChange(): void {
+    console.log(this.minABV + ' : ' + this.maxABV);
   }
 
   processRequest(data: any): void {

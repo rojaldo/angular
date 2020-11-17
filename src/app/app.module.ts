@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { ShowApodComponent } from './components/show-apod/show-apod.component';
 import { BeersComponent } from './components/beers/beers.component';
 import { AbvPipe } from './pipes/abv.pipe';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { RangeabvPipe } from './pipes/rangeabv.pipe';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,12 @@ import { AbvPipe } from './pipes/abv.pipe';
     ApodComponent,
     ShowApodComponent,
     BeersComponent,
-    AbvPipe
+    AbvPipe,
+    RangeabvPipe
   ],
   imports: [
     BrowserModule,
-    NgbModule, HttpClientModule, FormsModule
+    NgbModule, HttpClientModule, FormsModule, NgxSliderModule, AppRoutingModule
   ],
   providers: [CalculatorService, ApodService],
   bootstrap: [AppComponent]

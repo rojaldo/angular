@@ -1,15 +1,12 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-  <li ngbNavItem>
-    <a ngbNavLink>Calculadora</a>
-    <ng-template ngbNavContent><app-calculator></app-calculator></ng-template>
-  </li>
-  <li ngbNavItem>
-    <a ngbNavLink>Apod</a>
-    <ng-template ngbNavContent><app-apod></app-apod></ng-template>
-  </li>
-  <li ngbNavItem>
-    <a ngbNavLink>IPA</a>
-    <ng-template ngbNavContent><app-beers></app-beers></ng-template>
-  </li>
-</ul>
-<div [ngbNavOutlet]="nav"></div>
+<nav>
+  <ul>
+    <li><a routerLink="/calculator-component" routerLinkActive="active">Calculator</a></li>
+    <li><a routerLink="/apod-component" routerLinkActive="active">Apod</a></li>
+    <li><a routerLink="/beers-component" routerLinkActive="active">Cervezas</a></li>
+    <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+    <li><a routerLink="/orders" routerLinkActive="active">Orders</a></li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
+
