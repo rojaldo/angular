@@ -17,6 +17,7 @@ import { AbvPipe } from './pipes/abv.pipe';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { RangeabvPipe } from './pipes/rangeabv.pipe';
 import { AppRoutingModule } from './app-routing.module';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     ShowApodComponent,
     BeersComponent,
     AbvPipe,
-    RangeabvPipe
+    RangeabvPipe,
+    FormComponent
   ],
   imports: [
     BrowserModule,

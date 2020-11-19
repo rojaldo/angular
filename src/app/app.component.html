@@ -1,12 +1,28 @@
-<nav>
-  <ul>
-    <li><a routerLink="/calculator-component" routerLinkActive="active">Calculator</a></li>
-    <li><a routerLink="/apod-component" routerLinkActive="active">Apod</a></li>
-    <li><a routerLink="/beers-component" routerLinkActive="active">Cervezas</a></li>
-    <li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
-    <li><a routerLink="/orders" routerLinkActive="active">Orders</a></li>
-  </ul>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link active" routerLink="/calculator-component" routerLinkActive="active">Calculator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/apod-component" routerLinkActive="active">Apod</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/beers-component" routerLinkActive="active">Cervezas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/form-component" routerLinkActive="active">Formulario</a>
+      </li>
+
+    </ul>
+
+  </div>
 </nav>
+
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
-

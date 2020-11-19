@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, by, element, logging } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('sample app is running!');
+    expect(browser.getTitle()).toEqual('sample app is running!');
   });
 
   afterEach(async () => {
@@ -19,5 +19,17 @@ describe('workspace-project App', () => {
     expect(logs).not.toContain(jasmine.objectContaining({
       level: logging.Level.SEVERE,
     } as logging.Entry));
+  });
+});
+
+describe('Protractor Demo App', () => {
+  it('should add one and two', () => {
+    browser.get('http://juliemr.github.io/protractor-demo/');
+    element(by.model('first')).sendKeys(1);
+    element(by.model('second')).sendKeys(2);
+
+    element(by.id('gobutton')).click();
+
+    expect(element(by.binding('latest')).getText()).toEqual('3');
   });
 });

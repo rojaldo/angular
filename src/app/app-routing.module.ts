@@ -4,6 +4,7 @@ import { ApodComponent } from './components/apod/apod.component';
 import { BeersComponent } from './components/beers/beers.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { Injectable } from '@angular/core';
+import { FormComponent } from './components/form/form.component';
 
 @Injectable()
 export class YourGuard implements CanActivate {
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'calculator-component', component: CalculatorComponent },
     { path: 'apod-component', component: ApodComponent },
     { path: 'beers-component', component: BeersComponent, canActivate: [YourGuard] },
+    { path: 'form-component', component: FormComponent},
     {
         path: '',
         redirectTo: '/calculator-component',

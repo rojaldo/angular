@@ -2,7 +2,7 @@
     <ngx-slider [(value)]="minABV" [(highValue)]="maxABV" [options]="options" (userChange) = "handleChange()"></ngx-slider>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let beer of (beers|rangeabv : minABV : maxABV)">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let beer of (beers|rangeabv : minABV : maxABV); index as index">
             <div class="card">
                 <div class="container-fluid d-flex justify-content-center">
                     <img class="card-img-top" [src]="beer.image_url" style = "width: 60px" alt="">

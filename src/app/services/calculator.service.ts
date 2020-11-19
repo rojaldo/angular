@@ -66,6 +66,11 @@ export class CalculatorService {
     }
   }
 
+  setDisplay(disp: string): void {
+    this.display = disp;
+    this.subject.next(this.display);
+  }
+
   public handleSymbol(mySymbol: string): void {
     switch (this.currentState) {
       case State.Init:
